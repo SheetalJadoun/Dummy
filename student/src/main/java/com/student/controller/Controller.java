@@ -4,10 +4,7 @@ package com.student.controller;
 import com.student.model.Student;
 import com.student.service.Services;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,4 +33,35 @@ public class Controller
         }
         return s;
     }
+
+    @PutMapping("/update")
+    public Student updateStudent(@RequestBody Student temp)
+    {
+        Student s=null;
+        if(temp.getUsername()!=null)
+        {
+            s= service.updateStudent(temp);
+        }
+        return s;
+    }
+
+    @PutMapping("/update{email}{name}")
+    public Student updateUserName(@RequestParam String email,String name)
+    {
+        Student s=service.updateData(email,name);
+        return s;
+    }
+
+    @DeleteMapping("/delete{email}")
+    public String delete(@RequestParam String email)
+    {
+        Student s=service.find(email);
+        if(s!=null)
+        {
+            service.delete(s);
+            return "Deleted";
+        }
+        return "error";
+    }
+
 }
