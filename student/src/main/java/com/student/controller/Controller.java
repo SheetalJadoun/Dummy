@@ -23,6 +23,12 @@ public class Controller
         return ans;
     }
 
+    @GetMapping("/get{course}")
+    public List<Student> getStudentByCourse(@RequestParam String course)
+    {
+        return service.findByCourse(course);
+    }
+
     @PostMapping("/add")
     public Student addStudent(@RequestBody Student temp)
     {
@@ -52,10 +58,10 @@ public class Controller
         return s;
     }
 
-    @DeleteMapping("/delete{email}")
-    public String delete(@RequestParam String email)
+    @DeleteMapping("/delete{id}")
+    public String delete(@RequestParam int id)
     {
-        Student s=service.find(email);
+        Student s=service.findbyId(id);
         if(s!=null)
         {
             service.delete(s);

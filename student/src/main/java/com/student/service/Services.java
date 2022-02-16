@@ -55,4 +55,13 @@ public class Services
     {
         repo.delete(s);
     }
+
+    public Student findbyId(int id) {
+        return repo.findById(id);
+    }
+
+    public List<Student> findByCourse(String course)
+    {
+        return repo.findAllByCourse(course);
+    }
 }
