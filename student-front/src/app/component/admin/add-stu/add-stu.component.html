@@ -1,0 +1,39 @@
+<div class="container">
+    
+    <form [formGroup]="student" (ngSubmit)="onSubmit()" id="loginForm">
+        <div>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" formControlName="email">
+        </div>
+        <div>
+            <label for="username">Name</label>
+            <input type="text" id="username" name="username" formControlName="username">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" formControlName="password">
+        </div>
+        <div>
+            <label for="branch">Branch</label>
+            <input type="text" id="branch" name="branch" formControlName="branch">
+        </div>
+        <div>
+            <label for="course">Course</label>
+            <input type="text" id="course" name="course" formControlName="course">
+        </div>
+        
+        <!-- <div>
+            <label for="role">Role </label>
+            <select id="role" name="role"  formControlName="role">
+                <option value="ADMIN">ADMIN</option>
+                <option value="USER">STUDENT</option>
+            </select>
+        </div> -->
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <button (click)="logout()">Logout</button>
+
+</div>

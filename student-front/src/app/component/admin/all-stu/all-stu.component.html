@@ -1,0 +1,32 @@
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <!-- <th>Id</th> -->
+                <th>Name</th>
+                <!-- <th>Email</th> -->
+                <th>Course</th>
+                <!-- <th>Branch</th> -->
+                <th>Delete</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let it of dataArr">
+            <!-- <td>{{it.id}}</td> -->
+            <td>{{it.username}}</td>
+            <!-- <td>{{it.email}}</td> -->
+            <td>{{it.course}}</td>
+            <!-- <td>{{it.branch}}</td> -->
+            <!-- <td><button routerLink="get/{{it.id}}">View</button></td> -->
+            <td><button (click)="delete(it.id)">Delete</button></td>
+            <td><button (click)="view(it.id)">View</button></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <button (click)="add()">
+        Add student
+    </button>
+</div>
+<button (click)="logout()">Logout</button>
